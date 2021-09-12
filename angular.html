@@ -10,27 +10,31 @@
 </head>
 
 <body ng-app="hi-angular">
-    <div class="container" ng-controller="MainController">
+    <div class="container-fluid" ng-controller="MainController">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <a href="https://github.com/CatalyticWeb/hello-angular">link to my repo</a>
+                <a href="/file">go here to see how you can write a file to the server</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h1 id="page-title">hi angular</h1>
                 <input ng-model="user.name">
                 <h3 id="user-greeting">and hi there, {{ user.name }}</h3>
+                <p id="user-car">A {{ user.car }}? Noice.</p>
             </div>
         </div>
     </div>
 
-
     <script>
         window.app = angular.module('hi-angular', []);
-
         app.controller('MainController', function($scope, $http) {
             $scope.user = null;
 
             $http.get('/user')
                 .then(response => {
                     console.log(response.data);
-
                     $scope.user = response.data;
                 });
 
@@ -88,8 +92,6 @@
             text-align: center;
         }
     </style>
-
-    <!-- <script src="/hello-angular.js"></script> -->
 
 </body>
 
