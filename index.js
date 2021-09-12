@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 
 app.get('/user', function(req, res) {
 
-    res.sendFile('/user.json', { root: __dirname });
+    res.sendFile('/user.JSON', { root: __dirname });
 
 });
 
